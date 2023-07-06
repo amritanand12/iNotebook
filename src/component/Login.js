@@ -7,7 +7,7 @@ function Login(props) {
 
     let navigate = useNavigate();
     const handleOnSubmit = async (e) => {
-         const host = "https://inotebook-h2xf.onrender.com/";
+         const host = "https://inotebook-h2xf.onrender.com";
         e.preventDefault();
         const response = await fetch(
           `${host}/api/auth/loginUser`,

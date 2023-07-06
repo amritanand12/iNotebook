@@ -8,7 +8,7 @@ function Signup(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, password } = credentials;
-     const host = "https://inotebook-h2xf.onrender.com/";
+     const host = "https://inotebook-h2xf.onrender.com";
     const response = await fetch(
       `${host}/api/auth/createUser`,
       {
