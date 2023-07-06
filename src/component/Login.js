@@ -7,15 +7,22 @@ function Login(props) {
 
     let navigate = useNavigate();
     const handleOnSubmit = async (e) => {
+         const host = "https://inotebook-h2xf.onrender.com/";
         e.preventDefault();
-        const response = await fetch(`http://localhost:5000/api/auth/loginUser`, {
-            method: 'POST',
+        const response = await fetch(
+          `${host}/api/auth/loginUser`,
+          {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
-                // "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIwNTk2YjFmODg1N2FmNmM5YmIzMzlhIn0sImlhdCI6MTY0NTE4Mzc0NH0.FYkQshZOA4lbqQH8T0BvpPLv9-JDCZN-L1SYdSeV8JM"
+              "Content-Type": "application/json",
+              // "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIwNTk2YjFmODg1N2FmNmM5YmIzMzlhIn0sImlhdCI6MTY0NTE4Mzc0NH0.FYkQshZOA4lbqQH8T0BvpPLv9-JDCZN-L1SYdSeV8JM"
             },
-            body: JSON.stringify({ email: credentials.email, password: credentials.password })
-        });
+            body: JSON.stringify({
+              email: credentials.email,
+              password: credentials.password,
+            }),
+          }
+        );
 
         const json = await response.json();
         console.log(json)

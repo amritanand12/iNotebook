@@ -8,14 +8,18 @@ function Signup(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, password } = credentials;
-    const response = await fetch(`http://localhost:5000/api/auth/createUser`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        // "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIwNTk2YjFmODg1N2FmNmM5YmIzMzlhIn0sImlhdCI6MTY0NTE4Mzc0NH0.FYkQshZOA4lbqQH8T0BvpPLv9-JDCZN-L1SYdSeV8JM"
-      },
-      body: JSON.stringify({ name, email, password })
-    });
+     const host = "https://inotebook-h2xf.onrender.com/";
+    const response = await fetch(
+      `${host}/api/auth/createUser`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIwNTk2YjFmODg1N2FmNmM5YmIzMzlhIn0sImlhdCI6MTY0NTE4Mzc0NH0.FYkQshZOA4lbqQH8T0BvpPLv9-JDCZN-L1SYdSeV8JM"
+        },
+        body: JSON.stringify({ name, email, password }),
+      }
+    );
 
     const json = await response.json();
     console.log(json)
